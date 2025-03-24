@@ -8,7 +8,7 @@ const getProjects = async(req, res) => {
 }
 
 // crear un nuevo proyecto
-const createProejct = async(req, res) =>{
+const createProject = async(req, res) =>{
     const { name, description } = req.body;
     // agreagmos el nuevo proyecto a la BD
     try{
@@ -34,7 +34,7 @@ const getProject = async(req, res) =>{
 }
 
 // actualizar un proyecto
-const updateProject = async(req,res) => {
+const updateProject = async(req, res) => {
     const { id } = req.params;
     if(!mongoose.Types.ObjectId.isValid(id)){
         return res.status(404).json({ error: 'Proyecto con ID Válido' + id })
@@ -47,7 +47,7 @@ const updateProject = async(req,res) => {
 }
 
 // eliminar un proyecto
-const deleteProject = async(req,res) => {
+const deleteProject = async(req, res) => {
     const { id } = req.params;
     if(!mongoose.Types.ObjectId.isValid(id)){
         return res.status(404).json({ error: 'Proyecto con ID Válido' + id })
@@ -61,7 +61,7 @@ const deleteProject = async(req,res) => {
 
 module.exports = {
     getProjects,
-    createProejct,
+    createProject,
     getProject,
     updateProject,
     deleteProject
