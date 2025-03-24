@@ -16,7 +16,7 @@ app.use((req, res, next) => {
 })
 
 // configuramos la ruta de la aplicación 
-app.use('api/projects', projectRoutes);
+app.use('/api/projects', projectRoutes);
 
 // conectamos a la base de datos
 mongoose.connect(process.env.MONGO_URI)

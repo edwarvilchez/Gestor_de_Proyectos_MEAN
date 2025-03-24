@@ -37,26 +37,26 @@ const getProject = async(req, res) =>{
 const updateProject = async(req, res) => {
     const { id } = req.params;
     if(!mongoose.Types.ObjectId.isValid(id)){
-        return res.status(404).json({ error: 'Proyecto con ID Válido' + id })
+        return res.status(404).json({ error: 'Proyecto con ID Válido'})
     }
     const project = await Project.findOneAndUpdate({ _id: id }, req.body, { new: true });
     if(!project){
-        return res.status(404).json({ error: 'Proyecto no encontrado' + id })
+        return res.status(404).json({ error: 'Proyecto no encontrado'})
     }
-    res.status(200).json({ message: 'Proyecto actualizado' + id });
+    res.status(200).json({ message: 'Proyecto actualizado'});
 }
 
 // eliminar un proyecto
 const deleteProject = async(req, res) => {
     const { id } = req.params;
     if(!mongoose.Types.ObjectId.isValid(id)){
-        return res.status(404).json({ error: 'Proyecto con ID Válido' + id })
+        return res.status(404).json({ error: 'Proyecto con ID Válido' })
     }
     const project = await Project.findOneAndDelete({ _id: id }, req.body, { new: true });
     if(!project){
-        return res.status(404).json({ error: 'Proyecto no encontrado' + id })
+        return res.status(404).json({ error: 'Proyecto no encontrado'})
     }
-    res.status(200).json({ message: 'Proyecto eliminado' + id });
+    res.status(200).json({ message: 'Proyecto eliminado' });
 }
 
 module.exports = {
